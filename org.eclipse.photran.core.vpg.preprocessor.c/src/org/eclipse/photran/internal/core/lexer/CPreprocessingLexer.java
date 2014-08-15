@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     UIUC - Initial API and implementation
+ *     Rocky Dunlap - University of Colorado
  *******************************************************************************/
 package org.eclipse.photran.internal.core.lexer;
 
@@ -52,6 +53,9 @@ public abstract class CPreprocessingLexer implements ILexer
 	private Token lastToken = null;
 	
 	private Token lastReadInFile = null;
+	
+	//Rocky added
+	private boolean shouldExpandProducers = true;
 
     public CPreprocessingLexer(Reader in, IFile file, String filename, boolean accumulateWhitetext) throws IOException
     {
@@ -59,7 +63,8 @@ public abstract class CPreprocessingLexer implements ILexer
     }
 
     // This would not be here if we could assign the preprocessor to a variable in the above ctor (grrr)
-    private CPreprocessingLexer(CPreprocessingReader cpp, IFile file, String filename, boolean accumulateWhitetext)
+    //Rocky changed to public to allow external instantiation of the CPreprocessingReader
+    public CPreprocessingLexer(CPreprocessingReader cpp, IFile file, String filename, boolean accumulateWhitetext)
     {
         this.phase1Lexer = createDelegateLexer(cpp, file, filename, accumulateWhitetext);
         this.producerMap = cpp.getProducerMap();
@@ -104,6 +109,15 @@ public abstract class CPreprocessingLexer implements ILexer
     	}
     	else token = rawYYLex();
 
+    	//Rocky added
+    	if (!shouldExpandProducers) {
+    	    //return the token
+            lastToken = token;
+            setTokenAsCurrent(token);
+            return token;
+    	}
+    	//end Rocky added
+    	
     	//handle the final token specially...
     	if(token.getTerminal() == Terminal.END_OF_INPUT) {
     		//expand the whiteAfter on the last token using the producerMap
@@ -252,4 +266,8 @@ public abstract class CPreprocessingLexer implements ILexer
     public int getLastTokenStreamOffset() { return phase1Lexer.getLastTokenStreamOffset(); }
     
     public int getLastTokenLength() { return phase1Lexer.getLastTokenLength(); }
+    
+    public void setShouldExpandProducers(boolean shouldExpand) {
+        this.shouldExpandProducers = shouldExpand;
+    }
 }

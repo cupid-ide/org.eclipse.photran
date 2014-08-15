@@ -7,6 +7,7 @@
  *
  * Contributors:
  *     UIUC - Initial API and implementation
+ *     Rocky Dunlap - University of Colorado
  *******************************************************************************/
 package org.eclipse.photran.internal.core.lexer;
 
@@ -76,7 +77,7 @@ public class FixedFormLexerPhase2 implements ILexer
             }
         };
 
-        FixedFormLexerPhase1 fixedLexer1 = new FixedFormLexerPhase1(prepassReader, prepass, file, filename);
+        ILexer fixedLexer1 = createPhase1Lexer(file, filename, prepass, prepassReader);
         freeLexer2 = new FreeFormLexerPhase2(fixedLexer1)
         {
             @Override
@@ -92,6 +93,12 @@ public class FixedFormLexerPhase2 implements ILexer
                 }
             }
         };
+    }
+
+    protected ILexer createPhase1Lexer(
+        IFile file, String filename, FixedFormLexerPrepass prepass, Reader prepassReader)
+    {
+        return new FixedFormLexerPhase1(prepassReader, prepass, file, filename);
     }
 
     public IToken yylex() throws IOException, LexerException

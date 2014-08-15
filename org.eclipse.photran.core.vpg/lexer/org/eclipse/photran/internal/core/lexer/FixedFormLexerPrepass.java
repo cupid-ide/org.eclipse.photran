@@ -8,6 +8,7 @@
  * Contributors:
  *     Dirk Rossow - Initial API and implementation
  *     UIUC - Enhancements for fixed form refactoring support
+ *     Rocky Dunlap - University of Colorado
  *******************************************************************************/
 package org.eclipse.photran.internal.core.lexer;
 
@@ -30,7 +31,7 @@ import org.eclipse.photran.internal.core.preferences.FortranPreferences;
  * @author Jeff Overbey - Disallowed Holleriths in certain statements
  */
 // JO -- Added type parameters to mollify Java 5 compilers
-class FixedFormLexerPrepass {
+public class FixedFormLexerPrepass {
 	private static final int inStart=0;
 	private static final int inHollerith=1;
 	private static final int inDblQuote=2;

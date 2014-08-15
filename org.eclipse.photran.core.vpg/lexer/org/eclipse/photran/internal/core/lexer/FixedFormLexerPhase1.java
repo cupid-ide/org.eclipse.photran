@@ -9,6 +9,7 @@
  *
  * Contributors:
  *     UIUC - Initial API and implementation
+ *     Rocky Dunlap - University of Colorado
  *******************************************************************************/
 
 /*
@@ -47,7 +48,7 @@ import org.eclipse.core.resources.IFile;
  * on 6/11/14 2:02 PM from the specification file
  * <tt>FixedFormLexerPhase1.flex</tt>
  */
-class FixedFormLexerPhase1 implements ILexer {
+public class FixedFormLexerPhase1 implements ILexer {
 
   /** This character denotes the end of file */
   public static final int YYEOF = -1;

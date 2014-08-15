@@ -11,11 +11,11 @@
           class="org.eclipse.photran.internal.core.lexer.sourceform.CPreprocessedFreeSourceForm"
           priority="high"
           defaultForFilenameExtensions="F90,F95,F03,F08" />
-      <!--source-form
+      <source-form
           id="cppFixedForm"
           name="Fixed Form - C Preprocessed"
           class="org.eclipse.photran.internal.core.lexer.sourceform.CPreprocessedFixedSourceForm"
           priority="high"
-          defaultForFilenameExtensions="fpp,F,FOR,FTN,FIX,F77,FPP" /-->
+          defaultForFilenameExtensions="fpp,F,FOR,FTN,FIX,F77,FPP" />
   </extension>
 </plugin>
