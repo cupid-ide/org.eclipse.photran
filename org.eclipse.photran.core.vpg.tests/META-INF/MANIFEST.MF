@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Photran Virtual Program Graph Tests Plug-in
 Bundle-SymbolicName: org.eclipse.photran.core.vpg.tests
-Bundle-Version: 8.0.0.qualifier
+Bundle-Version: 9.0.0.qualifier
 Bundle-Vendor: Eclipse.org
 Require-Bundle: org.eclipse.photran.core.vpg,
  org.eclipse.photran.ui.vpg,
@@ -14,9 +14,6 @@ Require-Bundle: org.eclipse.photran.core.vpg,
  org.eclipse.cdt.core,
  org.eclipse.jface,
  org.eclipse.search,
- org.eclipse.rephraserengine.core,
- org.eclipse.rephraserengine.testing.junit3,
- org.eclipse.rephraserengine.ui,
  org.eclipse.photran.core
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.eclipse.photran.internal.tests.Activator

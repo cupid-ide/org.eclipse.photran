@@ -2,7 +2,7 @@
 <feature
       id="org.eclipse.photran"
       label="%featureName"
-      version="8.2.1.qualifier"
+      version="9.0.1.qualifier"
       provider-name="%providerName"
       plugin="org.eclipse.photran.core"
       license-feature="org.eclipse.license"
@@ -23,11 +23,6 @@
    <url>
       <update label="%updateSiteName" url="http://download.eclipse.org/tools/ptp/updates/juno"/>
    </url>
-
-   <includes
-         id="org.eclipse.rephraserengine"
-         version="0.0.0"
-         search-location="both"/>
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
@@ -55,9 +50,7 @@
       <import plugin="org.eclipse.ui.intro.universal"/>
       <import plugin="org.eclipse.ui.workbench.texteditor"/>
       <import plugin="org.eclipse.ltk.core.refactoring"/>
-      <import plugin="org.eclipse.rephraserengine.core"/>
       <import plugin="org.eclipse.ltk.ui.refactoring"/>
-      <import plugin="org.eclipse.rephraserengine.ui"/>
       <import feature="org.eclipse.cdt" version="8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.text"/>
    </requires>

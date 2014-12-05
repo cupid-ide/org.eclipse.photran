@@ -18,9 +18,7 @@ import java.io.Serializable;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.photran.core.IFortranAST;
 import org.eclipse.photran.internal.core.lexer.Token;
-import org.eclipse.rephraserengine.core.util.OffsetLength;
-import org.eclipse.rephraserengine.core.vpg.NodeRef;
-import org.eclipse.rephraserengine.core.vpg.VPG;
+import org.eclipse.photran.internal.core.util.OffsetLength;
 
 /**
  * A reference to a token in a Fortran AST (used by the VPG).
@@ -114,7 +112,6 @@ public class PhotranTokenRef extends NodeRef<Token> implements IPhotranSerializa
      * @param edgeType the type of edge (an arbitrary non-negative integer), or
      *                 {@link VPG#ALL_EDGES} to process all edges, regardless
      *                 of type
-     * @since 3.0
      */
     @SuppressWarnings("unchecked")
     @Override public Iterable<PhotranTokenRef> followOutgoing(int edgeType)
@@ -136,7 +133,6 @@ public class PhotranTokenRef extends NodeRef<Token> implements IPhotranSerializa
      * @param edgeType the type of edge (an arbitrary non-negative integer), or
      *                 {@link VPG#ALL_EDGES} to process all edges, regardless
      *                 of type
-     * @since 3.0
      */
     @SuppressWarnings("unchecked")
     @Override public Iterable<PhotranTokenRef> followIncoming(int edgeType)
